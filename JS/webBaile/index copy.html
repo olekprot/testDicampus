@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <header>
+
+    <div class="logo">logo</div>
+    <nav>
+        <ul>
+            <li><a onclick="mostrar('inicio')">inicio</a></li>
+            <li><a onclick="mostrar('cursos')">cursos</a></li>
+            <li><a onclick="mostrar('escuela')">escuela</a></li>
+            <li><a onclick="mostrar('contacto')">contacto</a></li>
+        </ul>
+    </nav>
+ </header>
+
+ <main>
+
+    <section id="inicio">
+        <h1>Bienvenidos a la mejor escuela de baile de Asturias y Gijón</h1>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus vitae dignissimos quidem. Quisquam magni in, animi nihil beatae impedit, illum magnam reprehenderit, molestias quibusdam aut dolorem labore non eligendi. Blanditiis.</p>
+    </section>
+
+    <section id="cursos">
+        <h1>Cursos de Baile: Salsa, Bachata, Street Dance</h1>
+
+        <ul>
+            <li>Salsa</li>
+            <li>Salsa 2</li>
+            <li>Bachata</li>
+            <li>Bachata 2</li>
+            <li>Street Dance</li>
+        </ul>
+
+        <h2>Horarios de nuestras clases de baile</h2>
+    </section>
+
+    <section id="escuela">
+        <h1>Nuestra Escuela</h1>
+        <p>Desde lso comienzos tanto Fulanito como Menganito, fundadores de la escuela nos ha gustado bailar</p>
+    </section>
+
+    <section id="contacto">
+        <h1>Ven a conocernos</h1>
+        <h2>Contacta con nosotros</h2>
+        <address>
+            c/Moros 22, Gijón Asturias
+        </address>
+        <a href="tel:+34999888777">999888777</a>
+        <a href="https://wa.me/3499988777">escribenos por Whatsapp</a>
+    </section>
+
+
+
+
+
+
+ </main>
+
+ <footer>
+    <p>&copy; Copyright 2025 - Academia de Baile</p>
+    <p><a href="#">Aviso Legal</a><a href="#">Política de Cookies</a></p>
+ </footer>   
+
+ <script>
+//DATOS
+//Lista de apartados
+let apartados = [
+    'inicio',
+    'cursos',
+    'escuela',
+    'contacto'
+];
+
+let actual =apartados;
+
+//Ocultar todo
+
+function ocultar() {
+    for (let i = 0; i < apartados.length; i++) {
+        document.querySelector('#' + apartados[i]).style.display = 'none';
+    }
+}
+//ejecutar función
+ocultar();
+
+function mostrar(apt=actual) {
+    actual=apt;
+    ocultar();
+    document.querySelector('#' + apt).style.display = 'block';
+}
+
+mostrar();
+
+
+
+
+ </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+document.querySelector('#inicio').style.display = 'none';
+document.querySelector('#cursos').style.display = 'none';
+document.querySelector('#escuela').style.display = 'none';
+document.querySelector('#contacto').style.display = 'none';
+
+
+
+
+document.querySelector('#escuela').style.display = 'block';
+
+

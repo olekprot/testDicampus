@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academia Baila</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Logo</div>
+        <nav>
+            <ul>
+                <li><a onclick="mostrar('inicio')" href="index.html">Inicio</a></li>
+                <li><a onclick="mostrar('escuela')" href="#escuela">Escuela</a></li>
+                <li><a onclick="mostrar('curso')" href="#curso">Curso</a></li>
+                <li><a onclick="mostrar('contacto')" href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="inicio">
+            <h1>Bienvenidos a la mejor escuela de baile de Asturias y Gijon</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut illum, in reiciendis vel voluptates culpa illo fuga ipsam 
+                quos sapiente at officiis labore veniam. Iste corrupti nemo enim maxime incidunt!
+                Id totam exercitationem hic nobis. Quis quas fuga aut ex dolores commodi, labore nemo aperiam a modi necessitatibus? 
+                Distinctio recusandae, blanditiis aspernatur adipisci alias eius ducimus delectus sint reprehenderit labore.
+            </p>
+
+
+
+        </section>
+        <section id="escuela" ">
+            <h2>Nuestra escuela</h2>
+            <p></p>
+        </section>
+        <section id="curso">
+            <h2></h2>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <h2>Horario</h2>
+        </section>
+        <section id="contacto">
+            <h1>Ven a conocemos</h1>
+            <h2>Contacto con Nosotros</h2>
+            <address>
+
+            </address>
+            <a href="tel:+34959685123">959-685-123</a>
+        </section>
+
+
+    </main>
+    <footer></footer>
+
+<script>
+    let unvisible = 'none';
+    let datos = ['inicio', 'escuela', 'curso', 'contacto'];
+    function mostrar(seccion) {
+        for(i = 0; i<datos.length; i++) {
+            document.getElementById(datos[i]).style.display = unvisible;
+            document.getElementById(seccion).style.display = 'block';
+        }
+    }
+
+
+
+    
+    
+</script>
+</body>
+</html>

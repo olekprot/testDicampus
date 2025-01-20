@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+            
+        }
+        .table {
+            max-width: 50vh;
+            padding: 35px 0;
+            background-color: tan;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 25px;
+            margin: 35px auto;
+        }
+        input {
+            padding: 10px;
+        }
+        button {
+            margin: 20px 0;
+            color: rgb(88, 60, 60);
+            background-color: yellow;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+        }
+        button:hover {
+            color: yellow;
+            background-color: rgb(88, 60, 60);
+            transition: .5s;
+            padding: 10px 35px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Fiestas de musica</h1>
+    <div class="table">
+        <label for="cuantos">
+            <input id="cuantos" type="number" placeholder="Cuantos billetes quieres?"> 
+        </label>
+        <select name="fiestas" id="fiestas">
+            <option value="70">Primavera Sound</option>
+            <option value="80">Sónar Festival</option>
+            <option value="100">Bilbao BBK Live</option>
+            <option value="200">Mad Cool Festival</option>
+            <option value="150">Rototom Sunsplash</option>
+        </select>
+        <button onclick="convertir()">Cambiar</button>
+        <h2 id="textoFinal">Aquí te mostrará cuántos billetes tienes y sus precio final</h2>
+        <p id="precio"></p>
+    </div>
+    <table>
+        <thead>
+            <th>Concepto</th>
+            <th>Precio/unidad</th>
+            <th>cantidad</th>
+            <th>subtotal</th>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Primavera Sound</th>
+                <th>80/entrada</th>
+                <th>2</th>
+                <th>240 euros</th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </tbody>
+        <tfoot>
+            
+        </tfoot>
+    </table>
+
+    <script>
+ 
+        function convertir() {
+            let cantidad = document.querySelector('#fiestas');
+            let cuantos = document.querySelector('#cuantos').value;
+            var getValue = cantidad.value * cuantos;
+            let nombreFiesta = document.querySelector('#fiestas option:checked').textContent;
+            document.querySelector('#textoFinal').innerHTML = "Tu compras "+cuantos+" billetes y vas al  "+nombreFiesta;
+            document.querySelector('#precio').innerHTML = "Tu precio final es "+getValue+ " euros";
+        }
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            min-width: 440px;
+            margin: 0 auto;
+            padding: 0 20px;
+            max-width: 800px;
+        }
+        h1 {
+            text-align: center;
+        }
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 10px;
+            padding-left: 0;
+            
+            
+        }
+        li{
+           font-size: 10px;
+           text-align: center;
+           box-shadow: 5px 5px 5px tan;
+           padding-bottom: 5px;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        #primero {
+            width: 100%;
+        }
+        button {
+            background-color: tan;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 15px;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: rgb(132, 116, 95);
+            transition: .5s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galeria Lorem Piksum</h1>
+    <img id="primero" src="https://picsum.photos/id/0/500/300" alt="">
+    <a id="link" href="https://picsum.photos/id/0/500/300" target="_blank">Link</a>
+    <ul id="imageList">
+    
+
+    </ul>
+    <script>
+        
+        function fragmento() { 
+            let miHTML = ""; 
+            for (let i = 0; i <= 24; i++) { 
+                miHTML += `<li><img src="https://picsum.photos/id/${i}/150/150"><p>Image ${i}</p><button onclick='cambiar(${i})'>Cambiar</button></li>`; 
+                } 
+            return miHTML; 
+        }
+        document.querySelector('ul').innerHTML = fragmento();
+        function cambiar(id) { 
+            let grandeImagen = document.querySelector('#primero'); 
+            let link = document.querySelector('#link'); 
+            grandeImagen.src = `https://picsum.photos/id/${id}/500/300`;
+            link.href = grandeImagen.src;
+        }
+
+    </script>
+</body>
+</html>

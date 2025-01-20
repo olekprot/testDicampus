@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter</title>
+    <style>
+        body {
+            text-align: center;
+            
+        }
+        .table {
+            max-width: 50vh;
+            padding: 35px 0;
+            background-color: tan;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            border-radius: 25px;
+            margin: 35px auto;
+        }
+        input {
+            padding: 10px;
+        }
+        button {
+            margin: 20px 0;
+            color: rgb(88, 60, 60);
+            background-color: yellow;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 25px;
+        }
+        button:hover {
+            color: yellow;
+            background-color: rgb(88, 60, 60);
+            transition: .5s;
+            padding: 10px 35px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Converter</h1>
+    <div class="table">
+        <label for="euros">
+            <input id="euros" type="number" placeholder="Cuantos euros tienes?"> €
+        </label>
+        <button onclick="convertir()">Cambiar</button>
+        <h2 id="dollares">Aquí te mostrará cuántos dólares tienes</h2>
+        <p id="comentario"></p>
+    </div>
+   
+
+<script>
+    let curso = 1.03;
+    function convertir() {
+        let euros = Number(document.querySelector('#euros').value);
+        console.log(euros);
+        let dollares = euros*curso;
+        if (dollares < 1000) {
+            document.querySelector('#dollares').innerHTML = "Tu tienes "+dollares.toFixed(2)+" $";
+            document.querySelector('#comentario').innerHTML = "Eres un hombre muy pobre, trabaja más."
+        } else {
+            document.querySelector('#dollares').innerHTML = "Tu tienes "+dollares.toFixed(2)+"$";
+            document.querySelector('#comentario').innerHTML = "No está mal, pero podría ser mejor."
+        }
+    }
+    
+</script>
+</body>
+</html>

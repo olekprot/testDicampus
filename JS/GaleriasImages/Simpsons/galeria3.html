@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <section id="galeria">
+        <img src="https://picsum.photos/id/238/200/300" id="image" alt="">
+        <div class="botonera">
+            <button onclick="buttonBack()">Back</button>
+            <button onclick="buttonNext()">Next</button>
+        </div>
+    </section>   
+    <script>
+       const fotos = [
+        "https://picsum.photos/id/232/200/300",
+        "https://picsum.photos/id/233/200/300",
+        "https://picsum.photos/id/234/200/300",
+        "https://picsum.photos/id/235/200/300",
+        "https://picsum.photos/id/236/200/300"
+       ];
+       let int = 0;
+        function buttonNext() {
+            if (int<5) {
+                document.querySelector('#image').src = fotos[int];
+                int++;
+            } else {
+                document.querySelector('#image').src = "https://picsum.photos/id/238/200/300";
+                int = 0;
+            }
+            return int;
+        }
+        function buttonBack() {
+            if (int < 5 || int>0) {
+                
+                console.log(int);
+                int--;
+                document.querySelector('#image').src = fotos[int];
+                console.log(int);
+            } else {
+                document.querySelector('#image').src = "https://picsum.photos/id/238/200/300";
+            }
+        }
+       
+    </script>
+</body>
+</html>

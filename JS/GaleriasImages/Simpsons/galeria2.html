@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <section id="galeria">
+        <img src="https://picsum.photos/id/235/200/300" id="image" alt="">
+        <div class="botonera">
+            <button onclick="button(0)">1</button>
+            <button onclick="button(1)">2</button>
+            <button onclick="button(2)">3</button>
+            <button onclick="button(3)">4</button>
+            <button onclick="button(4)">5</button>
+        </div>
+    </section>   
+    <script>
+       const fotos = [
+        "https://picsum.photos/id/232/200/300",
+        "https://picsum.photos/id/233/200/300",
+        "https://picsum.photos/id/234/200/300",
+        "https://picsum.photos/id/235/200/300",
+        "https://picsum.photos/id/236/200/300"
+       ];
+
+        function button(number) {
+            document.querySelector('#image').src = fotos[number];
+        }
+       
+    </script>
+</body>
+</html>
