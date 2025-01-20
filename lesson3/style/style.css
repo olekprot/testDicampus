@@ -1,0 +1,12 @@
+
+.foto {
+    background: url(https://estaticos-cdn.prensaiberica.es/clip/3ca1df9d-6893-4617-97fc-ec86282a91af_source-aspect-ratio_default_0.jpg);
+    background-size: cover;
+	padding: 20vh 20px;
+	text-align: center;
+	color:white;
+	border-radius:20px;
+	text-shadow:2px 2px 8px black;
+	font-size: 55px;
+}
+
