@@ -1,0 +1,173 @@
+:root {
+    --primary: rgb(148, 148, 249);
+    --secondary: rgb(255, 238, 238);
+
+    --fontPrimary: "Montserrat", serif;;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    margin: 0 auto;
+    
+    font-family: var(--fontPrimary);
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+li {
+    list-style: none;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*header*/
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 1px;
+    
+}
+.navigation img {
+    max-width: 90px;
+}
+.navigation ul {
+    display: flex;
+}
+.navigation li{
+    margin-right: 20px;
+}
+.navigation a {
+    padding: 5px 0;
+    transition: .5s;
+}
+.navigation_list a:hover {
+    border-bottom: 2px solid var(--primary);
+    color: var(--primary);
+    
+}
+/*END header*/
+
+/*main*/
+.first_section {
+    background: url(../img/home-aviles.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    padding: 10vh 20px;
+    text-align: center;
+    backdrop-filter: sepia(90%);
+
+
+}
+.first_section h1 {
+    margin: 200px auto 0;
+    color: var(--secondary);
+    font-size: 70px;
+    text-align: center;
+    opacity: 1;
+}
+.first_section p{
+    text-align: center;
+    color: var(--secondary);
+    padding: 0 15% 10%;
+    font-size: 18px;
+}
+
+
+.barrios {
+    display: flex;
+    padding: 50px 25px;
+    background: var(--primary);
+    box-shadow: 2px 2px 8px black;
+    transition: .8s;
+    outline: 2px var(--secondary) solid;
+    outline-offset: -20px;
+    color:var(--secondary);
+    margin-top: 50px;
+}
+.barrios:hover {
+    transform: matrix(20deg);
+    background: var(--secondary);
+    padding: -55px;
+    outline: 2px var(--primary) solid;
+    outline-offset: -20px;
+    color: var(--primary);
+    box-shadow: 4px 4px 10px black;
+}
+.section_head {
+    width: 25%;
+    margin: 0 25px;
+    text-align: center;
+}
+
+.linia {
+    border-bottom: 2px solid var(--secondary);
+    padding-bottom: 5px;
+    transition: .8s;
+    
+}
+.barrios:hover .linia {
+    border-bottom: 2px solid var(--primary);
+}
+
+/*zoomcarrusel*/
+.zoomcarrusel {
+    margin-top: 50px;
+}
+.hulk{
+    background-image: url(https://avilescomarca.info/wp-content/uploads/2016/04/12744444_10153978342174297_5329593071795498019_n.jpg);
+}
+.spiderman{
+    background-image: url(https://www.nortes.me/wp-content/uploads/2022/12/photo1671032541.jpeg);
+}
+.ironman{ 
+    background-image: url(https://s1.ppllstatics.com/elcomercio/www/multimedia/2023/10/24/Imagen%20CementerioSCristobal-kkFE--1200x840@El%20Comercio.jpg);
+}
+.thor{ 
+    background-image: url(https://images.habimg.com/imgh/50682-90/venta-de-terreno-en-villalegre-aviles-aviles_68a1549c-88ad-4c5d-994b-3caa59526f24G.jpg);
+}
+.zoomcarrusel ul{
+    list-style:none;
+    padding-left:0;
+    display:flex;
+}
+.zoomcarrusel h2 {
+    font-size: 35px;
+    text-align: center;
+    transition:1s;
+    padding-bottom: 25px;
+    color: var(--primary);
+}
+.zoomcarrusel li h3{
+    font-size:12px;
+}
+.zoomcarrusel li{
+    padding: 20px;
+    height:360px;
+    background-size:cover;
+    background-position:center center;
+    color:var(--secondary);
+    min-width:50px;
+    flex: 1 1 300px;
+    filter:grayscale(0);
+    transition:.5s;
+}
+.zoomcarrusel li:hover{
+    filter:grayscale(1);
+    min-width:400px !important;
+}
+.zoomcarrusel li:hover h2{
+    font-size:26px;
+}
+
+/* END main*/

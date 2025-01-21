@@ -1,0 +1,42 @@
+*{
+    outline: 2px red solid;
+
+}
+
+body {
+    background-color: bisque;
+    font-family: sans-serif;
+}
+img {
+    max-width: 100%;
+    border-radius: 15px;
+}
+/* HEADER*/
+header {
+    display: flex;
+    justify-content: space-between;
+    background: green;
+}
+header ul{
+    display: flex;
+    align-items: center;
+} 
+
+li {
+    padding-left: 25px;
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/*MAIN*/
+main {
+    background: red;
+}
+
+/*FOOTER*/
+footer {
+    background: blue;
+}
