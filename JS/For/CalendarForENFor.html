@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body { 
+        font-family: Arial, sans-serif; 
+    } 
+    .calendar { 
+        max-width: 50%;
+        margin: 0 auto; 
+        padding: 0; 
+        display: flex; 
+        flex-wrap: wrap; 
+        justify-content: center; 
+    } 
+    .month { 
+        width: 100%; 
+        text-align: center; 
+        background-color: #4CAF50; 
+        color: white; 
+        padding: 10px 0; 
+        margin-top: 20px; 
+        margin-bottom: 10px; 
+        border-radius: 4px; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    } 
+    .week { 
+        display: flex; 
+        width: 100%; 
+    } 
+    .day { 
+        background-color: #f9f9f9; 
+        color: #333; 
+        display: inline-block; 
+        width: calc(100% / 8); 
+        text-align: center; 
+        padding: 5px; 
+        margin: 5px 0; 
+        border: 1px solid #ddd; 
+        border-radius: 4px; 
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    }
+    .day:hover {
+        background-color: #d3d0d0; 
+        transition: .5s;
+        cursor: pointer;
+    } 
+
+        
+</style>
+<body>
+    <div class="calendar"></div>
+
+    <script>
+    const meses = [ 
+        { mes: "Enero", dias: 31 }, 
+        { mes: "Febrero", dias: 28 },  
+        { mes: "Marzo", dias: 31 }, 
+        { mes: "Abril", dias: 30 }, 
+        { mes: "Mayo", dias: 31 }, 
+        { mes: "Junio", dias: 30 }, 
+        { mes: "Julio", dias: 31 }, 
+        { mes: "Agosto", dias: 31 }, 
+        { mes: "Septiembre", dias: 30 }, 
+        { mes: "Octubre", dias: 31 }, 
+        { mes: "Noviembre", dias: 30 }, 
+        { mes: "Diciembre", dias: 31}
+        ];
+
+        let calendarHTML = ""; 
+        for (let i = 0; i < meses.length; i++) { 
+            calendarHTML += `<div class="month">${meses[i].mes}</div>`; 
+            let weekHTML = '<div class="week">'; 
+            for (let j = 1; j <= meses[i].dias; j++) { 
+                weekHTML += `<div class="day">${j}</div>`;
+                 if (j % 7 === 0) { 
+                    weekHTML += '</div><div class="week">'; } 
+                    } weekHTML += '</div>'; 
+                    calendarHTML += weekHTML; 
+                } 
+                document.querySelector('.calendar').innerHTML = calendarHTML;
+
+    </script>
+</body>
+</html>
