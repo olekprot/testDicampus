@@ -4,10 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-</head>
-<body>
-    
+    <style>
+       li{
+            display: flex;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: tan;
+            justify-content: space-between;
+        }
+        h3{
+            color: white;
+            padding-left: 10px;
+        }
+        p {
+            max-width: 50%;
+        }
+        span {
+            color: white;
+            font-size: 25px;
+            padding-right: 10px;
+        }
+        li:hover {
+            outline: 1px white solid;
+            outline-offset: -8px;
+            background-color: rgb(181, 155, 121);
+        }
 
+
+
+    </style>
+</head>
+
+<body>
 
     <script>
         const menu = [ 
@@ -16,6 +45,7 @@
                 descripción: "Un clásico asturiano con fabes, chorizo, morcilla y panceta.", 
                 precio: "15.50€", 
                 activo: true, 
+                alergenos: ['cerdo', 'frutos']
             },
              { 
                 nombrePlato: "Merluza a la Sidra", 
@@ -39,15 +69,23 @@
                 nombrePlato: "Pote Asturiano", 
                 descripción: "Un plato reconfortante a base de alubias, berza, patatas y compango.",
                 precio: "16.00€", 
-                activo: true, }
+                activo: false, }
         ]
         let libreta = '';
+       
         for(i=0; i<menu.length; i++){
-            libreta+='<li>';
-            libreta+= menu[i].nombrePlato;
-            libreta+='</li>';
-        }
-        document.body.innerHTML = libreta;
+            if (menu[i].activo == true) {
+                libreta+=`
+                <li>
+                    <h3>${menu[i].nombrePlato}</h3>
+                    <p>${menu[i].descripción}</p>
+                    <span>${menu[i].precio}</span>
+                </li>`; 
+              
+            }      
+            document.body.innerHTML = libreta;    
+        };
+        
 
     </script>
 </body>
