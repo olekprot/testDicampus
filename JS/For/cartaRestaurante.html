@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        const menu = [ 
+            { 
+                nombrePlato: "Fabada Asturiana", 
+                descripción: "Un clásico asturiano con fabes, chorizo, morcilla y panceta.", 
+                precio: "15.50€", 
+                activo: true, 
+            },
+             { 
+                nombrePlato: "Merluza a la Sidra", 
+                descripción: "Deliciosa merluza cocinada en salsa de sidra con patatas.", 
+                precio: "18.00€", 
+                activo: true, 
+            }, 
+            { 
+                nombrePlato: "Arroz con Leche", 
+                descripción: "Postre casero tradicional asturiano con toque de canela.", 
+                precio: "6.00€", 
+                activo: true, 
+            },
+            { 
+                nombrePlato: "Cachopo", 
+                descripción: "Dos filetes de ternera rellenos de jamón y queso, empanados y fritos. Acompañado de patatas y pimientos.", 
+                precio: "19.00€", 
+                activo: true, 
+            },
+            { 
+                nombrePlato: "Pote Asturiano", 
+                descripción: "Un plato reconfortante a base de alubias, berza, patatas y compango.",
+                precio: "16.00€", 
+                activo: true, }
+        ]
+        let libreta = '';
+        for(i=0; i<menu.length; i++){
+            libreta+='<li>';
+            libreta+= menu[i].nombrePlato;
+            libreta+='</li>';
+        }
+        document.body.innerHTML = libreta;
+
+    </script>
+</body>
+</html>
