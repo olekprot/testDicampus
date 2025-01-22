@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <style>
+        body {
+            background-color: bisque;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 150px;
+            border: 1px solid tan;
+            border-radius: 20px;
+            max-width: 250px;
+            margin: 0 auto;
+            padding: 5px;
+            background-color: white;
+            box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        }
+        .pantalla {
+            background-color: black;
+            color: white;
+            margin: 2px;
+            min-height: 150px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        .pantalla input{
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 10px;
+        }
+        .teclado {
+            padding: 0;
+        }
+        button {
+            width: 50px;
+            aspect-ratio: 1/1;
+            margin: 2px;
+            background-color: tan;
+            border: none;
+            color: white;
+            border-radius: 10px;
+        }
+        .teclado>div {
+            display: flex;
+        }
+        .colorOtro {
+            background-color: rgb(151, 122, 84);
+        }
+        button:active {
+            background-color: rgb(164, 141, 110);
+            transition: .5s;
+            scale: 0.95;
+
+        }
+        svg { display: block; margin: auto;
+        width: 100%;}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="pantalla">
+            <input type="number">
+            <input type="number">
+        </div>
+        <div class="teclado">
+            <div>
+                <button class="colorOtro">C</button>
+                <button class="colorOtro">+ -</button>
+                <button class="colorOtro">%</button>
+                <button class="colorOtro">/</button>
+            </div>
+            <div>
+                <button value="7">7</button>
+                <button value="8">8</button>
+                <button value="9">9</button>
+                <button class="colorOtro">*</button>
+            </div>
+            <div>
+                <button value="4">4</button>
+                <button value="5">5</button>
+                <button value="6">6</button>
+                <button class="colorOtro">-</button>
+            </div>
+            <div>
+                <button value="1">1</button>
+                <button value="2">2</button>
+                <button value="3">3</button>
+                <button class="colorOtro">+</button>
+            </div>
+            <div>
+                <button>
+                    
+                    <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0704 16.5826C21.4452 16.2095 21.9525 16 
+                            22.4814 16H56C57.1046 16 58 16.8954 58 18V46C58 47.1046 57.1046 48 56 48H22.4814C21.9525 48 
+                            21.4452 47.7905 21.0704 47.4174L7.00646 33.4174C6.22111 32.6357 6.22111 31.3644 7.00646 
+                            30.5826L21.0704 16.5826ZM56 18H22.4814L8.41745 32L22.4814 46H56V18Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M47.7929 40.2071L33.2929 25.7071L34.7071 24.2929L49.2071 38.7929L47.7929 40.2071Z" fill="white"/>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M34.7071 40.2071L49.2071 25.7071L47.7929 24.2929L33.2929 38.7929L34.7071 40.2071Z" fill="white"/>
+                    </svg>
+                </button>
+                <button>0</button>
+                <button>,</button>
+                <button class="colorOtro">=</button>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
