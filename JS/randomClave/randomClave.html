@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password</title>
+    <title>RandomClave</title>
     <style>
         html {
             height: 100%;
@@ -105,29 +105,37 @@
         <h2>Login</h2>
         <form onsubmit="event.preventDefault(); textPrint();">
             <div class="user-box">
-                <input id="user" type="text" name="user" required="">
-                <label>Username</label>
-            </div>
-            <div class="user-box">
-                <input id="pass" type="password" name="pass" required="" >
+                <input id="pass" type="password" name="pass">
                 <label>Password</label>
             </div>
-            <input type="submit" name="entrar" value="Entrar" id="" placeholder="Send" onclick="textPrint()">
+            <input type="submit" name="entrar" value="Generar" id="" placeholder="Send" onclick="genClave()">
         </form>
         <p class="text"></p>
     </div>
 
-
     <script>
-
-      function textPrint() {
-            var username = document.getElementById("user").value;
-            var password = document.getElementById("pass").value;
-            document.querySelector(".text").innerHTML = "Username: " + username + "<br>" + "Password: " + password;
+        let clave= '';
+        const numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+        const letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        const mayusculas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+        function genClave() {
+            borrar();
+            for (let i = 0; i < 10; i++) {
+                let num = Math.floor(Math.random() * 3);
+                if (num == 0) {
+                    clave += numeros[Math.floor(Math.random() * 10)];
+                } else if (num == 1) {
+                    clave += letras[Math.floor(Math.random() * 26)];
+                } else {
+                    clave += mayusculas[Math.floor(Math.random() * 26)];
+                }
+            }
+            document.querySelector('.text').innerHTML = `Tu clave es: ${clave}<br>`;
         }
-
-
-
+        function borrar() {
+            clave = '';
+            document.querySelector('.text').innerHTML = clave;
+        }
     </script>
 </body>
 </html>

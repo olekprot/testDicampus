@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            background-color: red;
+            width: 100px;
+            height: 100px;
+        }
+        ul {
+            display: flex;
+            max-width: 300px;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button onclick="refreshColor()">New Color</button>
+    <button onclick="listaColores()">ListaDeColor</button>
+    <button onclick="cambiarColor()">CambiarColor</button>
+    <button onclick="miguel()">method del Miguel</button>
+    <p class="nombreColor"></p>
+    <ul></ul>
+    <script>
+        /*Cambiamos color y escribimos en el parrafo*/
+        function refreshColor() {
+            let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+            document.querySelector('div').style.backgroundColor = '#' + randomColor;
+            document.querySelector('.nombreColor').innerText = '#' + randomColor;
+        };
+        
+        /*Generamos lista de colores*/
+        function listaColores(){
+            for (i=0; i<10; i++){
+                let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+                document.querySelector('ul').innerHTML += 
+                    `<li style="display:flex; gap: 10px; justify-content: center; align-items: center; padding: 10px"> ${randomColor} 
+                        <div style="background-color: #${randomColor}; width: 20px; height: 20px;"></div>
+                        </li>`;   
+            };
+        };
+
+        /*Cambiamos color del fondo*/
+        let colorGen= 'ff4455';
+        function cambiarColor(){
+            colorGen = Math.floor(Math.random() * 16777215).toString(16);
+                document.body.style.backgroundColor = '#' + colorGen;
+            };
+        
+        /*Methodo de Miguel para cambiar el color del fondo*/
+
+        const valores = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
+        let miColor = '#FF5585';
+        function miguel() {
+            for (i = 0; i < 6; i++) {
+                miColor += valores[Math.floor(Math.random() * valores.length)];
+            }
+            document.body.style.backgroundColor = miColor;
+        }
+            
+        
+        
+
+        
+        
+    </script>
+</body>
+</html>
