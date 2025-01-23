@@ -97,16 +97,28 @@
             border-radius: 10px;
             scale: 1.05;
         }
+        .user-box-checkbox {
+            padding: 20px 5px;
+        }
 
     </style>
 </head>
 <body>
     <div class="login-box">
         <h2>Login</h2>
-        <form onsubmit="event.preventDefault(); textPrint();">
+        <form onsubmit="event.preventDefault();">
             <div class="user-box">
-                <input id="pass" type="password" name="pass">
+                <input id="pass" type="text" name="pass">
                 <label>Password</label>
+                
+            </div>
+            <div class="user-box-checkbox">
+                <input type="checkbox" value="numeros" id="numeros">
+                <label for="numeros">Numeros</label>
+                <input type="checkbox" value="minusculas" id="minusculas">
+                <label for="minusculas">minusculas</label>
+                <input type="checkbox" value="mayusculas" id="mayusculas">
+                <label for="mayusculas">mayusculas</label>
             </div>
             <input type="submit" name="entrar" value="Generar" id="" placeholder="Send" onclick="genClave()">
         </form>
@@ -116,25 +128,53 @@
     <script>
         let clave= '';
         const numeros = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-        const letras = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
-        const mayusculas = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+        const letrasMin = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+        const letrasMay = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
         function genClave() {
             borrar();
             for (let i = 0; i < 10; i++) {
                 let num = Math.floor(Math.random() * 3);
-                if (num == 0) {
+                if (document.getElementById('numeros').checked && document.getElementById('minusculas').checked && document.getElementById('mayusculas').checked) {
+                    if (num == 0) {
+                        clave += numeros[Math.floor(Math.random() * 10)];
+                    } else if (num == 1) {
+                        clave += letrasMin[Math.floor(Math.random() * 26)];
+                    } else {
+                        clave += letrasMay[Math.floor(Math.random() * 26)];
+                    }
+                } else if (document.getElementById('numeros').checked && document.getElementById('minusculas').checked) {
+                    if (num == 0) {
+                        clave += numeros[Math.floor(Math.random() * 10)];
+                    } else {
+                        clave += letrasMin[Math.floor(Math.random() * 26)];
+                    }
+                } else if (document.getElementById('numeros').checked && document.getElementById('mayusculas').checked) {
+                    if (num == 0) {
+                        clave += numeros[Math.floor(Math.random() * 10)];
+                    } else {
+                        clave += letrasMay[Math.floor(Math.random() * 26)];
+                    }
+                } else if (document.getElementById('minusculas').checked && document.getElementById('mayusculas').checked) {
+                    if (num == 0) {
+                        clave += letrasMin[Math.floor(Math.random() * 26)];
+                    } else {
+                        clave += letrasMay[Math.floor(Math.random() * 26)];
+                    }
+                } else if (document.getElementById('numeros').checked) {
                     clave += numeros[Math.floor(Math.random() * 10)];
-                } else if (num == 1) {
-                    clave += letras[Math.floor(Math.random() * 26)];
+                } else if (document.getElementById('mayusculas').checked) {
+                    clave += letrasMay[Math.floor(Math.random() * 26)];
+                } else if (document.getElementById('minusculas').checked) {
+                    clave += letrasMin[Math.floor(Math.random() * 26)];
                 } else {
-                    clave += mayusculas[Math.floor(Math.random() * 26)];
+                    clave = `Сomprobar opciones de contraseña!!!!!<br>`;
                 }
-            }
-            document.querySelector('.text').innerHTML = `Tu clave es: ${clave}<br>`;
+            }    
+            document.querySelector('#pass').value = clave;
         }
         function borrar() {
             clave = '';
-            document.querySelector('.text').innerHTML = clave;
+            document.querySelector('#pass').value = clave;
         }
     </script>
 </body>
