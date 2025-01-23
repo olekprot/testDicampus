@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            max-width: 550px;
+            height: 70dvb;
+            margin: 0 auto;
+            background-color: tan;
+        }
+        .buttons,
+        .buttonsGenerador {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+            padding: 20px 10px;
+        } 
+        .pantalla {
+            width: 50%;
+            text-align: center;
+            padding: 20px 10px;
+            background-color: rgb(191, 191, 231);
+        }
+        button{
+            width: 100%;
+        }
+        img {
+            max-width: 50px;
+        }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="buttons">
+            <div class="buttonsGenerador">
+
+            </div>
+            <button onclick="saludar()">Hola</button>
+            <button onclick="borrador()">Borrar</button>
+            <button onclick="todos()">Todos equipos</button>
+            <div>
+                <button onclick="back()">Back</button>
+                <button onclick="next()">Next</button>
+            </div>
+            <button onclick="aleatorio()">Random</button>
+        </div>
+        <div class="pantalla">
+            
+        </div>
+    </div>
+    <script>
+        let clubs = [
+            ["Real Madrid", "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/1200px-Real_Madrid_CF.svg.png", 1902 ],
+            ["Barcelona","https://upload.wikimedia.org/wikipedia/en/thumb/4/47/FC_Barcelona_%28crest%29.svg/1200px-FC_Barcelona_%28crest%29.svg.png", 1899],
+            ["Liverpool","https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/800px-Liverpool_FC.svg.png", 1892],
+            ["Real Oviedo","https://upload.wikimedia.org/wikipedia/en/thumb/6/6e/Real_Oviedo_logo.svg/1200px-Real_Oviedo_logo.svg.png", 1926],
+            ["Betis","https://upload.wikimedia.org/wikipedia/en/thumb/1/13/Real_betis_logo.svg/1200px-Real_betis_logo.svg.png", 1907],
+            ["Sevilla","https://upload.wikimedia.org/wikipedia/en/thumb/3/3b/Sevilla_FC_logo.svg/1200px-Sevilla_FC_logo.svg.png", 1890],
+            ["Mallorca","https://upload.wikimedia.org/wikipedia/en/thumb/e/e0/Rcd_mallorca.svg/1200px-Rcd_mallorca.svg.png", 1916],
+            ["Valencia","https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Valenciacf.svg/1200px-Valenciacf.svg.png", 1919],
+            ["Sporting Gijon","https://upload.wikimedia.org/wikipedia/en/thumb/4/48/Real_Sporting_de_Gijon.svg/1200px-Real_Sporting_de_Gijon.svg.png", 1905],
+            ["Atletic Bilbao","https://upload.wikimedia.org/wikipedia/en/thumb/9/98/Club_Athletic_Bilbao_logo.svg/1200px-Club_Athletic_Bilbao_logo.svg.png", 1898],
+        ];
+        /*Variables*/
+        let texto = "";
+        let currentIndex = 0;
+
+        /*Hola Ej1*/
+        function saludar() {
+            document.querySelector('.pantalla').innerHTML = "Hola"
+        }
+
+        /*Generador buttosn Ej2*/
+        let nombreEquipo = '';
+        function nombreGenerador() {
+            for(i=0; i<clubs.length; i++) {
+                nombreEquipo = clubs[i][0];
+                document.querySelector('.buttonsGenerador').innerHTML += `<button class="buttonNombre" onclick="imprimirNombre(${i})">${nombreEquipo}</button>`;
+            }
+        }
+        nombreGenerador();
+
+        /*Imprimir nombre del equipo*/
+        function imprimirNombre(button){;
+            currentIndex = button;
+                document.querySelector('.pantalla').innerHTML = `<p>${clubs[currentIndex][0]}</p><br>
+                <img src="${clubs[currentIndex][1]}" alt="${clubs[currentIndex][0]}"><br>
+                <p>${clubs[currentIndex][2]}</p>`;
+            }
+
+        /*Borrador*/
+        function borrador() {
+            document.querySelector('.pantalla').innerHTML = "";
+        }
+
+        /*Todos los equipos*/
+        function todos() {
+            borrador();
+            for(i=0; i<clubs.length; i++) {
+                nombreEquipo = clubs[i][0];
+                document.querySelector('.pantalla').innerHTML += `<li>${nombreEquipo}</li>`;
+            }
+        }
+        
+        /*Next y Back*/
+        function next() {
+           if(currentIndex == clubs.length) {
+                currentIndex = 0;
+                document.querySelector('.pantalla').innerHTML = 
+                `<p>${clubs[currentIndex][0]}</p><br>
+                <img src="${clubs[currentIndex][1]}" alt="${clubs[currentIndex][0]}"><br>
+                <p>${clubs[currentIndex][2]}</p>`;
+           } else {
+                currentIndex++;
+                document.querySelector('.pantalla').innerHTML = `<p>${clubs[currentIndex][0]}</p><br>
+                <img src="${clubs[currentIndex][1]}" alt="${clubs[currentIndex][0]}"><br>
+                <p>${clubs[currentIndex][2]}</p>`;
+           }
+        }
+        function back() {
+            if (currentIndex == 0) {
+                currentIndex = clubs.length - 1;
+                document.querySelector('.pantalla').innerHTML = 
+                    `<p>${clubs[currentIndex][0]}</p><br>
+                    <img src="${clubs[currentIndex][1]}" alt="${clubs[currentIndex][0]}"><br>
+                    <p>${clubs[currentIndex][2]}</p>`;
+            } else {
+                currentIndex--;
+                document.querySelector('.pantalla').innerHTML = 
+                    `<p>${clubs[currentIndex][0]}</p><br>
+                    <img src="${clubs[currentIndex][1]}" alt="${clubs[currentIndex][0]}"><br>
+                    <p>${clubs[currentIndex][2]}</p>`;
+            }
+        }
+
+        /*Aleatorio(Random)*/
+        function aleatorio() {
+            currentIndex = Math.floor(Math.random() * clubs.length);
+            document.querySelector('.pantalla').innerHTML = 
+                `<p>${clubs[currentIndex][0]}</p><br>
+                <img src="${clubs[currentIndex][1]}" alt="${clubs[currentIndex][0]}"><br>
+                <p>${clubs[currentIndex][2]}</p>`;;
+        }
+        
+      
+
+    </script>
+</body>
+</html>

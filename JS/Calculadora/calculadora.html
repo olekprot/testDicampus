@@ -28,12 +28,7 @@
             min-height: 150px;
             border-radius: 10px;
             margin-bottom: 10px;
-        }
-        .pantalla input{
-            background-color: black;
-            color: white;
-            border: none;
-            border-radius: 10px;
+            width: 100%;
         }
         .teclado {
             padding: 0;
@@ -46,6 +41,7 @@
             border: none;
             color: white;
             border-radius: 10px;
+            transition: .9s;
         }
         .teclado>div {
             display: flex;
@@ -55,8 +51,8 @@
         }
         button:active {
             background-color: rgb(164, 141, 110);
-            transition: .5s;
-            scale: 0.95;
+            
+            scale: 0.90;
 
         }
         svg { display: block; margin: auto;
@@ -66,8 +62,6 @@
 <body>
     <div class="container">
         <div class="pantalla">
-            <input type="number">
-            <input type="number">
         </div>
         <div class="teclado">
             <div>
@@ -96,7 +90,6 @@
             </div>
             <div>
                 <button>
-                    
                     <svg width="32" height="32" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M21.0704 16.5826C21.4452 16.2095 21.9525 16 
                             22.4814 16H56C57.1046 16 58 16.8954 58 18V46C58 47.1046 57.1046 48 56 48H22.4814C21.9525 48 
@@ -112,6 +105,13 @@
             </div>
         </div>
     </div>
-    
+    <script>
+
+
+      function mas() {
+            let x = 1;
+            let y = 2;
+        }
+    </script>
 </body>
 </html>
