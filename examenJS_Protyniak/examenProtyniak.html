@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examen Protyniak</title>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    img {
+        max-width: 300px;
+        width: 100%;
+    }
+    .container{
+        max-width: 900px;
+        height: 80dvb;
+        background-color: rgb(206, 115, 115);
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+    }
+    .forma {
+        max-width: 80%;
+        text-align: center;
+        color: white;
+        padding-top: 20px;
+    }
+    .buttonBlock {
+        padding: 20px 0;
+        width: 100%;
+        text-align: center;
+    }
+    button {
+        color: white;
+        background-color: tan;
+        border: none;
+        padding: 5px 25px;
+        margin: 0 10px;
+        transition: .5s;
+        border-radius: 10px;
+    }
+    button:hover {
+        scale: 1.1;
+        background-color: rgb(174, 148, 114);
+    }
+    .gradient-text {
+        background-color: #CA4246;
+        background-image: linear-gradient(45deg,
+            #CA4246 16.666%, 
+            #E16541 16.666%, 
+            #E16541 33.333%, 
+            #F18F43 33.333%, 
+            #F18F43 50%, 
+            #8B9862 50%, 
+            #8B9862 66.666%, 
+            #476098 66.666%, 
+            #476098 83.333%, 
+            #A7489B 83.333%);
+        background-size: 100%;
+        background-repeat: repeat;
+        animation: rainbow-text-simple-animation-rev 0.75s ease forwards;
+        padding: 10px 0;
+    }
+    .gradient-text:hover{
+        animation: rainbow-text-simple-animation 0.5s ease-in forwards;
+    }
+    .gradient-text>p:nth-child(1) {
+        font-size: 25px;
+    }
+
+
+    @keyframes rainbow-text-simple-animation-rev {
+        0% {
+            background-size: 650%;
+        }
+        40% {
+            background-size: 650%;
+        }
+        100% {
+            background-size: 100%;
+        }
+    }
+    @keyframes rainbow-text-simple-animation {
+     0% {
+            background-size: 100%;
+        }
+        80% {
+            background-size: 650%;
+        }
+        100% {
+            background-size: 650%;
+        }
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="forma">
+        </div>
+        <div class="buttonBlock">
+            <button type="button" onclick="back()">Back</button>
+            <button type="button" onclick="next()">Next</button>
+        </div>
+    </div>
+
+
+    <script>
+        /*Variables*/
+        let currentIndex = 0;
+
+        const festividadesEspanolas = [
+            ["Año Nuevo", "1 de enero", "https://img.freepik.com/vector-gratis/fondo-ano-nuevo-2019-dibujado-mano_23-2148009039.jpg"],
+            ["Viernes Santo", "18 de abril de 2025", "https://img.freepik.com/vector-gratis/ilustracion-degradado-viernes-santo-celebracion-pascua_23-2150146582.jpg"],
+            ["Día del Trabajador", "1 de mayo", "https://img.freepik.com/vector-gratis/fondo-dia-trabajador-dibujado-mano_23-2148092852.jpg"],
+            ["Asunción de la Virgen", "15 de agosto", "https://img.freepik.com/vector-gratis/asuncion-plana-ilustracion-maria_23-2149000941.jpg"],
+            ["Día de la Hispanidad", "12 de octubre", "https://img.freepik.com/vector-gratis/ilustracion-plana-celebracion-dia-independencia-colombia_23-2150496179.jpg"]
+        ];
+        const coloresFondo = ['green','red', 'black', 'yellow', 'grey'];
+
+        /*Primera pantalla*/
+        document.querySelector('.forma').innerHTML = `
+            <p>Fiestas de Espana</p><br>`;
+            /*Siguente*/
+        function next() {
+            if(currentIndex == festividadesEspanolas.length) {
+                currentIndex = 0;
+                document.querySelector('.container').style.backgroundColor = coloresFondo[currentIndex];
+                document.querySelector('.forma').innerHTML = `
+                    <img src="${festividadesEspanolas[0][2]}" alt="${festividadesEspanolas[currentIndex][0]} "><br>
+                    <div class="gradient-text">
+                        <p>${festividadesEspanolas[currentIndex][0]}</p><br>
+                        <p>${festividadesEspanolas[currentIndex][1]}</p>
+                    </div>`;
+            } else {
+                document.querySelector('.container').style.backgroundColor = coloresFondo[currentIndex];
+                document.querySelector('.forma').innerHTML = `
+                    <img src="${festividadesEspanolas[currentIndex][2]}" alt="${festividadesEspanolas[currentIndex][0]} "><br>
+                    <div class="gradient-text">
+                        <p>${festividadesEspanolas[currentIndex][0]}</p><br>
+                        <p>${festividadesEspanolas[currentIndex][1]}</p>
+                    </div>`;
+                    currentIndex++;
+            }
+        }
+
+        /*Anterior*/
+        function back() {
+            if(currentIndex == 0) {
+                currentIndex = festividadesEspanolas.length;
+                document.querySelector('.container').style.backgroundColor = coloresFondo[currentIndex];
+                document.querySelector('.forma').innerHTML = `<p>Ultimo</p>
+                    <img src="${festividadesEspanolas[0][2]}" alt="${festividadesEspanolas[currentIndex][0]} "><br>
+                    <div class="gradient-text">
+                        <p>${festividadesEspanolas[currentIndex][0]}</p><br>
+                        <p>${festividadesEspanolas[currentIndex][1]}</p>
+                    </div>`;
+            } else {
+                currentIndex--;
+                document.querySelector('.container').style.backgroundColor = coloresFondo[currentIndex];
+                document.querySelector('.forma').innerHTML = `
+                    <img src="${festividadesEspanolas[currentIndex][2]}" alt="${festividadesEspanolas[currentIndex][0]} "><br>
+                    <div class="gradient-text">
+                        <p>${festividadesEspanolas[currentIndex][0]}</p><br>
+                        <p>${festividadesEspanolas[currentIndex][1]}</p>
+                    </div>`;
+            }
+        }
+    </script>
+</body>
+</html>
