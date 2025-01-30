@@ -1,0 +1,222 @@
+:root {
+    --c1: rgb(131, 109, 109);
+    --c1hover: rgb(83, 71, 71);
+    --c2: black;
+    --ff: "Raleway", serif;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    margin: 0 auto;
+    font-family: var(--ff);
+    color: var(--c1);
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    align-items: center;
+    margin: 0 auto;
+}
+/*HEADER*/
+header {
+    margin: 10px;
+}
+header img {
+    max-width: 20dvh;
+}
+nav {
+    max-width: 80%;
+}
+header ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header li {
+    padding-right: 20px;
+    font-size: 23px;
+}
+header a {
+    color: var(--c1);
+    transition: .5s;
+}
+header a:hover {
+    color: var(--c1hover);
+    border-bottom: 1px solid var(--c1hover);
+}
+header button{
+    padding: 10px;
+    background-color: var(--c1);
+    color: white;
+    font-family: var(--ff);
+    border: none;
+    border-radius: 10px;
+    transition: .5s;
+}
+header button:hover {
+    background-color: var(--c1hover);
+}
+
+/*END HEADER*/
+/*MAIN*/
+/*Inicio*/
+#inicio {
+    background-image: url(img/StockSnap_BOUAHJWHG5.jpg);
+    background-size: cover;
+    background-position: 50% 50%;
+}
+.inicio_text {
+    color: var(--c1);
+    padding: 250px 45px;
+}
+.inicio_text h1 {
+    font-size: 45px;
+}
+.inicio_text p {
+    max-width: 35%;
+}
+/*Lista de los ciudades*/
+#ciudades {
+    margin: 0 auto;
+}
+#ciudades h2,
+#informacion h2{
+    text-align: center;
+    font-size: 30px;
+    padding: 25px;
+}
+#lista_ciudades {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#lista_ciudades li{
+    width: 25%;
+    text-align: center;
+    background-color: rgb(238, 229, 217);
+    padding-bottom: 20px;
+}
+#lista_ciudades li h2{
+    padding-top: 20px;
+}
+#lista_ciudades img {
+    filter: grayscale(80%);
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+#lista_ciudades img:hover{
+    filter: grayscale(0%);
+}
+#lista_ciudades p {
+    padding: 5px;
+}
+#lista_ciudades p a{
+    color: var(--c1);
+    transition: transform .5s;
+
+}
+#lista_ciudades p a:hover{
+    color: var(--c1hover);
+    border-bottom: 1px solid var(--c1hover);
+}
+#lista_ciudades p a img{
+    width: 10px;
+}
+/*Informacion*/
+.informacion_section{
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+}
+.informacion_section img{
+    max-width: 400px;
+    filter: grayscale(80%);
+    padding-bottom: 20px;
+}
+.informacion_section img:hover{
+    filter: grayscale(0%);
+}
+.informacion_section p {
+    border: 1px solid var(--c1);
+    font-size: 20px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: 2px 2px 8px black;
+}
+/*END MAIN*/
+/*FOOTER*/
+h5{
+    text-align: center;
+    padding: 35px 0;
+    border-top: 1px solid var(--c1);
+}
+/*END FOOTER*/
+
+/*MEDIA*/ 
+@media only screen and (max-width: 880px) {
+    .informacion_section {
+        flex-direction: column;
+    }
+}
+@media only screen and (max-width: 650px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 auto;
+    }
+    #lista_ciudades li{
+        width: 50%;
+    }
+    .inicio_text h1,
+    .inicio_text p,
+    #informacion h2 {
+        text-align: center;
+        color: rgb(18, 14, 14);
+    } 
+    .inicio_text p {
+        padding: 0;
+        max-width: 100%;
+    }
+
+    .informacion_section p {
+        border: 1px solid var(--c1);
+        font-size: 15px;
+    }
+}
+
+@media only screen and (max-width: 431px) {
+    #lista_ciudades li{
+        width: 100%;
+    }
+    header ul{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    header li{
+        padding: 7px 0;
+    }
+    #informacion h2 {
+        font-size: 18px;
+    }
+    .informacion_section img {
+        width: 150px;
+    }
+    .informacion_section p{
+        font-size: 15px;
+    }
+
+}
