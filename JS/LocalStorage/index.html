@@ -6,8 +6,11 @@
     <title>Document</title>
 </head>
 <body>
-    <button>Comprar</button>
+    <button onclick="agregar(100)">Camisa</button>
+    <button onclick="agregar(80)">Traje</button>
+    <button onclick="agregar(50)">Cerveza</button>
     <p id="total">0</p>
+    <button onclick="vacinar()">Clear</button>
 
 
 
@@ -28,8 +31,9 @@
             mostrar();
         }
         function mostrar(){
-            document.getElementById('total').innerHTML = total;
+            document.getElementById('total').innerHTML = total+',00';
         }
+       
     </script>
 </body>
 </html>
